@@ -7,19 +7,19 @@ This is a WSL2 Docker implementation of my original project found here: https://
 ## Infrastructure Overview
 For a local focused implementation of this bot, the additional Azure infrastructure required to support the Docker & VPN implementation is pretty simple and matches the following diagram:
 
-![Additional Required Resources](https://github.com/user-attachments/assets/18493684-ada1-4ac8-a39e-800a60ed6f23)
+![Additional Required Resources](https://github.com/user-attachments/assets/2dfc9fd8-0d9f-437c-87dd-21ea61f44e45)
 
 
 If building upon the original Azure Infrastructure needed to support the original Twitter bot implementation (which is what [this main.tf](https://github.com/AllenShap/AzPythonTweetBot/blob/main/terraform/main.tf) file makes), the infrastructure should end up looking like the following:
 
-![Complete Docker Deployment](https://github.com/user-attachments/assets/0a27ed33-41b2-4e9a-a818-ad46221a9d28)
+![Complete Docker Deployment](https://github.com/user-attachments/assets/db06bbba-0bb2-408b-a181-34ae36a2db36)
 
 
 
 
 Once the additonal infrastructure is deployed and the VPN server is running, deploying the Docker containers on a host with the appropriately modified files will result in a network flow which looks like the following:
 
-![Docker  Network Flow Diagram](https://github.com/user-attachments/assets/57cfa077-6353-432d-9a77-fb7347d47504)
+![Docker  Network Flow Diagram](https://github.com/user-attachments/assets/92611f45-859a-4290-917a-218e382dd01b)
 
 
 
