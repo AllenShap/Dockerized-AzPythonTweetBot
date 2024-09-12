@@ -1,0 +1,32 @@
+services:
+  gluetun:
+    build:
+      context: ./Gluetun-WireguardVPNContainer/
+      dockerfile: Dockerfile
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      - VPN_ENDPOINT_IP=
+      - VPN_ENDPOINT_PORT=51820
+      - WIREGUARD_PUBLIC_KEY=
+      - WIREGUARD_PRIVATE_KEY=
+      - WIREGUARD_ADDRESSES=10.0.0.5/24
+
+  fastapi:
+    build:
+      context: ./FastAPIContainer/
+      dockerfile: Dockerfile
+    privileged: true
+    network_mode: service:gluetun
+
+
+  function:
+    build:
+      context: ./AzPythonTweetBotContainer/
+      dockerfile: Dockerfile
+    privileged: true
+    network_mode: service:gluetun
+  
